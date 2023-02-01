@@ -1,6 +1,6 @@
 import './r.css'
 import { cleanPage } from "../../herramientas/cleanPage";
-const link = "https://rickandmortyapi.com/api/character"
+const link = "https://rickandmortyapi.com/api/character/"
 
 export const mp = async () => {
     app.innerHTML = `
@@ -26,9 +26,9 @@ export function buscarCharacter (nombreCharacter) {
     <div class="cha">
       
       <img src="${ob.image}"/>
-      <h2>nombre: ${ob.name}  tipo: ${ob.type}</h2>
+      <h2>nombre: ${ob.name}  tipo: ${ob.gender}</h2>
       
-      <h3>altura: ${ob.height}  peso: ${ob.weight}</h3>
+      <h3>status: ${ob.status}  species: ${ob.species}</h3>
       </div>
     `
    })
@@ -38,7 +38,7 @@ let cha = [];
 const getCharacters = async () => {
     try {
         let characters = [];
-        for (let i = 1; i < 30; i++) {
+        for (let i = 1; i < 20; i++) {
             const response = await fetch(`${link}${i}`);
             const dataJSON = await response.json();
             characters.push(dataJSON);
@@ -51,10 +51,12 @@ const getCharacters = async () => {
     function transformData(l) {
         const mappedCharacters = l.map((ob) => ({
 
-        //image: ob.sprites.other.home.front_default,
+        image: ob.image,
         name: ob.name,
-        type: ob.type,
-        gender: ob.gender ,
+        gender: ob.gender,
+        status: ob.status,
+        species: ob.species,
+        
 
         
         }));
@@ -71,12 +73,12 @@ const getCharacters = async () => {
         for (const ob of list) {
             const template = `
         
-            <div class="poke">
+            <div class="char">
             
             <img src="${ob.image}"/>
-            <h2>nombre: ${ob.name}  tipo: ${ob.type}</h2>
+            <h2>nombre: ${ob.name}  gender: ${ob.gender}</h2>
+            <h3>status: ${ob.status}  species: ${ob.species}</h3>
             
-            <h3>altura: ${ob.height}  peso: ${ob.weight}</h3>
             </div>
             
             `;
