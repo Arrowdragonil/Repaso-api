@@ -1,0 +1,36 @@
+#user{
+    margin-left: 33%;
+    font-size: 2rem;
+}
+
+#box{
+    
+    height: 100;
+    display: grid;
+    place-content: center;
+    transform: translate(0%, 200%);
+
+    
+}
+#box2{
+    
+    height: 100;
+    display: grid;
+    place-content: center;
+    transform: translate(0%, 200%);
+
+}
+#b{
+    background-color: gray;
+    background-size: cover;
+    
+    padding: 0px;
+    
+    
+}
+
+#t{
+    font-family: 'Pokemon Solid', sans-serif;
+    margin-left: 33%;
+    font-size: 5rem;
+}
